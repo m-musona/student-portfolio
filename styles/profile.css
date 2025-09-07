@@ -1,0 +1,179 @@
+/* Profile Details Container */
+.profile-details-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 40px;
+}
+
+/* Profile Summary (image + text) */
+.profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-summary img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-summary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.profile-summary p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Section Heading */
+.profile-details-container > h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+/* Results Table */
+.profile-details-container table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0; /* removes gaps */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-details-container th,
+.profile-details-container td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.profile-details-container th {
+    font-weight: bold;
+}
+
+.profile-details-container tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-summary img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-details-container table,
+    .profile-details-container th,
+    .profile-details-container td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/* Achievements Section Container */
+.achievements-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 40px;
+    line-height: 1.7;
+}
+
+/* Heading */
+.achievements-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Accent underline for heading */
+.achievements-container h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+/* Paragraph */
+.achievements-container p {
+    font-size: 1.05rem;
+    text-align: justify;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .achievements-container {
+        padding: 25px;
+    }
+
+    .achievements-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .achievements-container p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+
+/* Light Mode (default) */
+body.light-mode .achievements-container h2::after {
+    background-color: #47a6ff;
+}
+body.light-mode .profile-details-container > h2 {
+    border-left: 5px solid #47a6ff;
+}
+body.light-mode .profile-details-container th {
+    background-color: #47a6ff;
+}
+body.light-mode .profile-details-container th,
+body.light-mode .profile-details-container td {
+    border-bottom: 1px solid #ccc;
+}
+body.light-mode .profile-details-container tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+body.light-mode .profile-details-container table {
+    border: 1px solid #ccc;
+}
+body.light-mode .profile-details-container tr:hover td {
+    background-color: #f1faff;
+}
+/* Dark Mode */
+body.dark-mode .achievements-container h2::after {
+    background-color: #9d0bf1;
+}
+body.dark-mode .profile-details-container > h2 {
+    border-left: 5px solid #9d0bf1;
+}
+body.dark-mode .profile-details-container th {
+    background-color: #9d0bf1;
+}
+body.dark-mode .profile-details-container th,
+body.dark-mode .profile-details-container td {
+    border-bottom: 1px solid #303030;
+}
+body.dark-mode .profile-details-container tr:nth-child(even) {
+    background-color: #111;
+}
+body.dark-mode .profile-details-container table {
+    border: 1px solid #303030;
+}
+body.dark-mode .profile-details-container tr:hover td {
+    background-color: #303030;
+}

@@ -1,0 +1,213 @@
+/* Container Styling */
+.info-container {
+    display: flex;
+    flex-direction: column;  /* Stack vertically by default */
+    gap: 30px;               /* Space between sections */
+    padding: 20px;
+    width: 100%;
+}
+
+/* Heading Section */
+.info-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+#dateTime {
+    font-size: 1.1rem;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap; /* Responsive for smaller screens */
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;   /* Circular image */
+    object-fit: cover;
+}
+
+.profile div {
+    max-width: 700px;
+}
+
+.profile h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.profile p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Container Styling */
+.img-container {
+    padding: 20px;
+    width: 100%;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* Slides */
+.slides {
+    display: none;  /* Hide all slides by default */
+}
+
+.slides img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Fade Animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {opacity: 0.4} 
+    to {opacity: 1}
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 12px;
+    margin-top: -22px;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    user-select: none;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+/* Dot Indicators */
+.dot-container {
+    text-align: center;
+    padding: 15px 0 0 0;
+    background: transparent;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.dot:hover, .dot.active {
+    background-color: #717171;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .prev, .next {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .img-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+.slide-caption {
+    text-align: center;
+}
+.slide-caption span {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Intro Section Container */
+.intro-container {
+    width: 100%;
+    margin: 20px 0px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading */
+.intro-container h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Description */
+.intro-container p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+/* Video Player */
+.intro-container video {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intro-container {
+        padding: 20px;
+    }
+
+    .intro-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .intro-container p {
+        font-size: 1rem;
+    }
+}

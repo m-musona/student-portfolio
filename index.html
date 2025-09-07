@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <meta name="description" content="Login">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/login.css"/>
+        <link rel="stylesheet" href="styles/style.css"/>
+    </head>
+    <body>
+        <button id="theme-toggle">
+            Dark Mode
+        </button>
+        <div id="mouse-effect"></div>
+        <canvas id="particle-canvas"></canvas>
+        <div class="show-cursor element-container container top">
+            <div class="image-container">
+                <img src="images/mountain_day.jpg" alt="Mountain Day"/>
+                <h1 class="overlay-text">Login</h1>
+            </div>
+            <div class="form-container">
+                <form id="loginForm" onsubmit="return validateForm()">
+                    <div class="form-input">
+                        <label>Username: </label>
+                        <input type="text" id="username" placeholder="Username"/>
+                    </div>
+                    <div class="form-input">
+                        <label>Password: </label>
+                        <input type="password" id="password" placeholder="Password"/>
+                        <div>
+                            <input type="checkbox"/>
+                            <span>Show Password</span>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div>
+                            <span>Remember Me: </span>
+                            <input type="checkbox" id="rememberMe"/>
+                        </div>
+                    </div>
+                    <div><span>Don't have an account? </span><a class="link">Register Here</a></div>
+                    <button class="login-btn btn" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+        <div id="errorMsg" class="error" hidden></div>
+        
+        <script>
+            function showError(message) {
+                const errorMsg = document.getElementById("errorMsg");
+                errorMsg.textContent = message;
+                errorMsg.classList.add("show");
+                setTimeout(() => {
+                    errorMsg.classList.remove("show");
+                }, 3000);
+            }
+
+            function validateForm() {
+                const username = document.getElementById("username").value.trim();
+                const password = document.getElementById("password").value.trim();
+
+                if (username === "" || password === "") {
+                    showError("All fields are required.");
+                    return false;
+                }
+                if (username.length < 4) {
+                    showError("Username must be at least 4 characters.");
+                    return false;
+                }
+                if (password.length < 6) {
+                    showError("Password must be at least 6 characters.");
+                    return false;
+                }
+
+                alert("Login successful! Redirecting to Home Page...");
+                window.location.href = "home.html";
+                return false;
+            }
+        </script>
+        <script type="module" src="scripts/main.js"></script>
+    </body>
+</html>

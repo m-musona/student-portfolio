@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Home Page</title>
+        <meta name="description" content="Home">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/home.css"/>
+        <link rel="stylesheet" href="styles/style.css"/>
+    </head>
+    <body>
+        <button id="theme-toggle">
+            Dark Mode
+        </button>
+        <div id="mouse-effect"></div>
+        <canvas id="particle-canvas"></canvas>
+
+        <header class="show-cursor header container top">
+            <div class="navbar">
+                <div class="navbar-item">
+                    <a class="txt" href="home.html">Home</a>
+                </div>
+                <div class="navbar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn txt">Academic Results <span class="dropIcon">▼</span></button>
+                        <div class="dropdown-content">
+                            <a class="txt" href="year1.html">Year 1 Results</a>
+                            <a class="txt" href="year2.html">Year 2 Results</a>
+                            <a class="txt" href="year3.html">Year 3 Results</a>
+                            <a class="txt" href="year4.html">Year 4 Results</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="extra1.html">Extra Page 1</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="extra2.html">Extra Page 2</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="index.html">Logout</a>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="info-container show-cursor container left">
+                <div>
+                    <h1>Welcome to My Student Portfolio</h1>
+                    <p id="dateTime"></p>
+                </div>
+
+                <div class="profile">
+                    <img src="images/me.jpg" alt="Profile Picture">
+                    <h2>Mutale Musona</h2>
+                    <div>
+                        <a href="profile.html" class="link-btn btn">Visit My Profile</a>
+                        <p>Hello! My name is Mutale Musona, a computer science student passionate about web development, AI, and design. This portal showcases my results, extra projects, and more.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-container show-cursor container right">
+                <div class="slideshow-container">
+                    <div class="slides fade"><img src="images/portfolio_image_1.jpg" alt="Slide 1"></div>
+                    <div class="slides fade"><img src="images/portfolio_image_2.png" alt="Slide 2"></div>
+                    <div class="slides fade"><img src="images/portfolio_image_3.png" alt="Slide 3"></div>
+                    <div class="slides fade"><img src="images/portfolio_image_4.jpg" alt="Slide 4"></div>
+                    <div class="slides fade"><img src="images/portfolio_image_5.png" alt="Slide 5"></div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                </div>
+                <div class="slide-caption">
+                    <span id="slideCaption">My Test Text</span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="intro-container show-cursor container bottom">
+                <h2>Website Introduction</h2>
+                <p>Here is a short video walkthrough explaining how to use and navigate my website:</p>
+                
+                <video controls>
+                    <source src="intro.mp4" type="video/mp4">
+                    <source src="intro.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Student Portfolio - All Rights Reserved</p>
+        </footer>
+
+        <script>
+            // Date & Time
+            function updateDateTime() {
+                const now = new Date();
+                document.getElementById("dateTime").textContent = 
+                    "Today is " + now.toDateString() + " " + now.toLocaleTimeString();
+            }
+            setInterval(updateDateTime, 1000);
+            updateDateTime();
+
+            // Slideshow
+            let slideIndex = 0;
+            let slideTimer;
+
+            
+            // Add captions for each slide
+            const slideCaptions = [
+                "These Are A Few Examples Of What I can do.",
+                "I Have Knowledge In Creating AI Models With Machine Learning. <a href='https://github.com/m-musona/Simple-Sentiment-Analyzer-API' class='link'>See Github.</a>",
+                "I Have Knowledge In Graphics Rendering In OpenGL, Vulkan and DirectX 11. <a href='https://github.com/m-musona/BasicShapeRenderingOpenGL' class='link'>See Github.</a>",
+                "I Have Knowledge In Building Web Backends In C# with ASP.NET. <a href='#' class='link'>See Github.</a>",
+                "I Have Knowledge In Building Apps With Flutter. <a href='#' class='link'>See Github.</a>"
+            ];
+
+            function showSlides(n) {
+                let slides = document.getElementsByClassName("slides");
+                let dots = document.getElementsByClassName("dot");
+                let caption = document.getElementById("slideCaption");
+
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+
+                // Update caption
+                caption.innerHTML = slideCaptions[slideIndex-1];
+
+                clearTimeout(slideTimer);
+                slideTimer = setTimeout(() => plusSlides(1), 4000); // Auto next every 4s
+            }
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            // Initialize slideshow
+            slideIndex = 1;
+            showSlides(slideIndex);
+        </script>
+        <script type="module" src="scripts/main.js"></script>
+    </body>
+</html>

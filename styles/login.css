@@ -1,0 +1,196 @@
+ /* Light Mode 
+    color: #fff;
+    color: #eee;
+    color: #ccc;
+    color: #47a6ff;
+    */
+    /* Dark Mode 
+    color: #141414;
+    color: #1b1b1b;
+    color: #272727;
+    color: #9d0bf1;
+    */
+
+
+.element-container {
+    width: 90vw;
+    max-width: 1000px;
+    height: 80vh;
+    display: flex;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.image-container {
+    position: relative;
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+}
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px);
+    transform: scale(1.1);
+    transition: transform 1.5s ease;
+}
+.image-container:hover img {
+    transform: scale(1.05);
+}
+.image-container .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: textFadeIn 1.5s 0.5s forwards;
+}
+
+@keyframes textFadeIn {
+    to { opacity: 1; }
+}
+
+.form-container {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 15px;
+}
+
+.form-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.form-input input[type="text"],
+.form-input input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.form-input label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.form-input input[type="checkbox"] {
+    appearance: none; /* Remove default checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-input input[type="checkbox"]:checked::after {
+    content: "✔";
+    position: absolute;
+    font-size: 14px;
+    left: 2px;
+    top: -2px;
+}
+
+.form-input div,
+.form-input label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Floating labels */
+.form-input input:focus + label,
+.form-input input:not(:placeholder-shown) + label {
+    transform: translateY(-20px);
+    font-size: 12px;
+    color: #47a6ff;
+}
+.login-btn:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Error message animation */
+.error {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: absolute;
+    top: 90%;
+    right: 10%;
+    background-color: #ff0909;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.error.show {
+    opacity: 1;
+    animation: shake 0.5s;
+}
+
+@media (max-width: 768px) {
+    .element-container {
+        flex-direction: column;
+        height: 90vh;
+    }
+    .image-container { display: none; }
+    .form-container { width: 100%; }
+}
+
+/* Light Mode (default) */
+body.light-mode .form-input input {
+    background-color: #fff;
+    color: #111;
+}
+body.light-mode .form-input input[type="text"]:focus,
+body.light-mode .form-input input[type="password"]:focus {
+    border-color: #47a6ff;
+    box-shadow: 0 0 10px rgba(71,166,255,0.5);
+    outline: none;
+}
+body.light-mode .form-input input[type="checkbox"]:checked {
+    background-color: #47a6ff;
+    border-color: #47a6ff;
+}
+body.light-mode .form-input input[type="checkbox"]:hover {
+    border-color: #47a6ff;
+}
+
+/* Dark Mode */
+body.dark-mode .form-input input {
+    background-color: #222;
+    color: #fff;
+    border-color: #555;
+}
+body.dark-mode .form-input input[type="text"]:focus,
+body.dark-mode .form-input input[type="password"]:focus {
+    border-color: #9d0bf1;
+    box-shadow: 0 0 10px rgba(157, 11, 241, 0.5);
+    outline: none;
+}
+body.dark-mode .form-input input[type="checkbox"]:checked {
+    background-color: #9d0bf1;
+    border-color: #9d0bf1;
+}
+body.dark-mode .form-input input[type="checkbox"]:hover {
+    border-color: #9d0bf1;
+}

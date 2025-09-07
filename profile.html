@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Profile Page</title>
+        <meta name="description" content="Home">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/style.css"/>
+        <link rel="stylesheet" href="styles/profile.css"/>
+    </head>
+    <body>
+        <button id="theme-toggle">
+            Dark Mode
+        </button>
+        <div id="mouse-effect"></div>
+        <canvas id="particle-canvas"></canvas>
+
+        <header class="show-cursor header container top">
+            <div class="navbar">
+                <div class="navbar-item">
+                    <a class="txt" href="home.html">Home</a>
+                </div>
+                <div class="navbar-item">
+                    <div class="dropdown">
+                        <button class="dropbtn txt">Academic Results <span class="dropIcon">▼</span></button>
+                        <div class="dropdown-content">
+                            <a class="txt" href="year1.html">Year 1 Results</a>
+                            <a class="txt" href="year2.html">Year 2 Results</a>
+                            <a class="txt" href="year3.html">Year 3 Results</a>
+                            <a class="txt" href="year4.html">Year 4 Results</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="extra1.html">Extra Page 1</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="extra2.html">Extra Page 2</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="index.html">Logout</a>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="profile-details-container show-cursor container left">
+                <div class="profile-summary">
+                    <img src="images/me.jpg" alt="Profile Picture">
+                    <div>
+                        <h2>Mutale Musona</h2>
+                        <p>Computer Science Student, passionate about technology, problem-solving, and innovation.</p>
+                    </div>
+                </div>
+
+                <h2>Academic Results</h2>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td>Mathematics</td>
+                        <td>100</td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Computer Programming</td>
+                        <td>100</td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Data Structures</td>
+                        <td>100</td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Systems</td>
+                        <td>100</td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Database Systems</td>
+                        <td>100</td>
+                        <td>A+</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section>
+            <div class="achievements-container show-cursor container right">
+                <h2>Academic Achievements</h2>
+                <p>
+                John has consistently maintained a strong academic record, excelling particularly in mathematics and computer programming. 
+                He has participated in multiple hackathons and coding competitions, achieving top rankings in university-level contests. 
+                His academic journey reflects dedication, problem-solving skills, and a passion for continuous learning.
+                </p>
+            </div>
+        </section>
+    </body>
+    <script type="module" src="scripts/main.js"></script>
+</html>
