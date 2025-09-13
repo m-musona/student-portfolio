@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="navbar-item">
-                    <a class="txt" href="extra1.html">Extra Page 1</a>
+                    <a class="txt" href="extra1.html">Hobbies and Interests</a>
                 </div>
                 <div class="navbar-item">
-                    <a class="txt" href="extra2.html">Extra Page 2</a>
+                    <a class="txt" href="extra2.html">Career Goals & Projects</a>
                 </div>
                 <div class="navbar-item">
                     <a class="txt" href="index.html">Logout</a>
@@ -43,7 +43,7 @@
             </div>
         </header>
         <section>
-            <div class="info-container show-cursor container left">
+            <div class="info-container">
                 <div>
                     <h1>Welcome to My Student Portfolio</h1>
                     <p id="dateTime"></p>
@@ -52,10 +52,10 @@
                 <div class="profile">
                     <img src="images/me.jpg" alt="Profile Picture">
                     <h2>Mutale Musona</h2>
-                    <div>
-                        <a href="profile.html" class="link-btn btn">Visit My Profile</a>
-                        <p>Hello! My name is Mutale Musona, a computer science student passionate about web development, AI, and design. This portal showcases my results, extra projects, and more.</p>
-                    </div>
+                </div>
+                <div>
+                    <a href="profile.html" class="link-btn btn">Visit My Profile</a>
+                     <div id="typing"></div>
                 </div>
             </div>
 
@@ -159,6 +159,45 @@
             // Initialize slideshow
             slideIndex = 1;
             showSlides(slideIndex);
+
+            // Typing Animation
+            const texts = [
+            "Hello! My name is Mutale Musona. ", 
+            "An information systems and technology student at the University Of Lusaka. ",
+            "I am passionate about web development, AI, and computer graphics programming. ",
+            "This portal showcases my results, extra projects, and more. "
+            ];
+
+            const typingDiv = document.getElementById("typing");
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let speed = 1; // typing speed in ms
+
+            function typeEffect() {
+            const currentText = texts[textIndex];
+
+            if (isDeleting) {
+                typingDiv.textContent = currentText.substring(0, charIndex--);
+                speed = 50; // faster delete
+            } else {
+                typingDiv.textContent = currentText.substring(0, charIndex++);
+                speed = 100; // normal typing speed
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                speed = 1500; // pause before deleting
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length; // move to next text
+                speed = 500; // pause before typing again
+            }
+
+            setTimeout(typeEffect, speed);
+            }
+
+            typeEffect();
         </script>
         <script type="module" src="scripts/main.js"></script>
     </body>

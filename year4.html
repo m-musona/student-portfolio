@@ -1,73 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Year 4 Results</title>
-    <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      margin: 0;
-      padding: 20px;
-    }
-    header {
-      background: #007bff;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      border-radius: 5px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      background: white;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    }
-    table, th, td {
-      border: 1px solid #333;
-    }
-    th, td {
-      padding: 10px;
-      text-align: center;
-    }
-    th {
-      background: #007bff;
-      color: white;
-    }
-    tr:nth-child(even) {
-      background: #f2f2f2;
-    }
-    tr:hover {
-      background: #d6e9ff;
-    }
-    .back-btn {
-      display: inline-block;
-      padding: 10px 15px;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .back-btn:hover {
-      background: #0056b3;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Year 4 Results</h1>
-  </header>
+	<head>
+        <meta charset="utf-8">
+        <title>Year 4 Results Page</title>
+        <meta name="description" content="Home">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/style.css"/>
+    </head>
+	<body>
+		<button id="theme-toggle">
+			Dark Mode
+		</button>
+		<div id="mouse-effect"></div>
+		<canvas id="particle-canvas"></canvas>
 
-  <table>
-    <tr><th>Subject</th><th>Marks</th><th>Grade</th></tr>
-    <tr><td>Machine Learning</td><td>91</td><td>A</td></tr>
-    <tr><td>Cloud Computing</td><td>87</td><td>A-</td></tr>
-    <tr><td>Cybersecurity</td><td>83</td><td>B+</td></tr>
-    <tr><td>Final Year Project</td><td>95</td><td>A+</td></tr>
-    <tr><td>Entrepreneurship</td><td>88</td><td>A</td></tr>
-  </table>
-
-  <a href="home.html" class="back-btn">⬅ Back to Home</a>
-</body>
+		<header class="show-cursor header container top">
+			<div class="navbar">
+				<div class="navbar-item">
+					<a class="txt" href="home.html">Home</a>
+				</div>
+				<div class="navbar-item">
+					<div class="dropdown">
+						<button class="dropbtn txt">Academic Results <span class="dropIcon">▼</span></button>
+						<div class="dropdown-content">
+							<a class="txt" href="year1.html">Year 1 Results</a>
+							<a class="txt" href="year2.html">Year 2 Results</a>
+							<a class="txt" href="year3.html">Year 3 Results</a>
+							<a class="txt" href="year4.html">Year 4 Results</a>
+						</div>
+					</div>
+				</div>
+				<div class="navbar-item">
+                    <a class="txt" href="extra1.html">Hobbies and Interests</a>
+                </div>
+                <div class="navbar-item">
+                    <a class="txt" href="extra2.html">Career Goals & Projects</a>
+                </div>
+				<div class="navbar-item">
+					<a class="txt" href="index.html">Logout</a>
+				</div>
+			</div>
+		</header>
+				<section>
+			<div class="table-container show-cursor container bottom">
+				<h2>Year 4 Results</h2>
+				<table>
+					<tr>
+						<th>Subject</th>
+						<th>Marks</th>
+						<th>Grade</th>
+					</tr>
+					<tr>
+						<td>Machine Learning</td>
+						<td>100</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Cloud Computing</td>
+						<td>100</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Cybersecurity</td>
+						<td>100</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Final Year Project</td>
+						<td>100</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Entrepreneurship</td>
+						<td>100</td>
+						<td>A+</td>
+					</tr>
+				</table>
+			</div>
+		</section>
+		<footer>
+            <p>© 2025 Student Portfolio - All Rights Reserved</p>
+        </footer>
+	</body>
+	<script type="module" src="scripts/main.js"></script>
 </html>

@@ -1,0 +1,32 @@
+.hobbies-container {
+    text-align: center;
+}
+.interests-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 20px; /* space between columns and rows */
+
+}
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.slideshow-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    height: 300px;
+}
+
+.slide {
+    display: none;
+}
+
