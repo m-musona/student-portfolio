@@ -66,11 +66,11 @@
 
             <div class="img-container show-cursor container right">
                 <div class="slideshow-container">
-                    <div class="slides fade"><img src="images/portfolio_image_1.jpg" alt="Slide 1"></div>
-                    <div class="slides fade"><img src="images/portfolio_image_2.png" alt="Slide 2"></div>
-                    <div class="slides fade"><img src="images/portfolio_image_3.png" alt="Slide 3"></div>
-                    <div class="slides fade"><img src="images/portfolio_image_4.jpg" alt="Slide 4"></div>
-                    <div class="slides fade"><img src="images/portfolio_image_5.png" alt="Slide 5"></div>
+                    <div class="slides active"><img src="images/portfolio_image_1.jpg" alt="Slide 1"></div>
+                    <div class="slides"><img src="images/portfolio_image_2.png" alt="Slide 2"></div>
+                    <div class="slides"><img src="images/portfolio_image_3.png" alt="Slide 3"></div>
+                    <div class="slides"><img src="images/portfolio_image_4.jpg" alt="Slide 4"></div>
+                    <div class="slides"><img src="images/portfolio_image_5.png" alt="Slide 5"></div>
 
                     <a class="prev" onclick="plusSlides(-1)">❮</a>
                     <a class="next" onclick="plusSlides(1)">❯</a>
@@ -93,6 +93,9 @@
                 <p>Here is a short video walkthrough explaining how to use and navigate my website:</p>
                 
                 <div class="custom-video" id="videoPlayer">
+                    <div class="loading-indicator" id="loadingIndicator">
+                        <div class="spinner"></div>
+                    </div>
                     <video id="myVideo">
                         <source src="videos/explaination.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -150,13 +153,18 @@
                 if (n < 1) { slideIndex = slides.length }
 
                 for (let i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
+                    slides[i].classList.remove("active", "prev-slide");
                 }
+
+                // Determine previous slide to slide out
+                let prevIndex = slideIndex - 1 < 0 ? slides.length - 1 : slideIndex - 1;
+                if (slides[prevIndex]) slides[prevIndex].classList.add("prev-slide");
+
+                slides[slideIndex-1].classList.add("active");
+
                 for (let i = 0; i < dots.length; i++) {
                     dots[i].className = dots[i].className.replace(" active", "");
                 }
-
-                slides[slideIndex-1].style.display = "block";
                 dots[slideIndex-1].className += " active";
 
                 // Update caption
@@ -224,6 +232,7 @@
             const volume = document.getElementById("volume");
             const controls = document.getElementById("controls");
             const videoPlayer = document.getElementById("videoPlayer");
+            const loadingIndicator = document.getElementById('loadingIndicator');
 
             let hideControlsTimeout;
 
@@ -276,13 +285,23 @@
                 }
             }
 
+            video.addEventListener('waiting', () => {
+                loadingIndicator.style.display = 'block';
+            });
+            video.addEventListener('playing', () => {
+                loadingIndicator.style.display = 'none';
+            });
+
             // Show controls on mouse/touch interaction
             videoPlayer.addEventListener("mousemove", showControls);
             videoPlayer.addEventListener("click", showControls);
             videoPlayer.addEventListener("touchstart", showControls);
 
             // Show controls when paused
-            video.addEventListener("pause", () => controls.classList.remove("hide"));
+            video.addEventListener("pause", () => {
+                controls.classList.remove("hide");
+                loadingIndicator.style.display = 'none';
+            });
             video.addEventListener("play", showControls);
 
             // Initialize

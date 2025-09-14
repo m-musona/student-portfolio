@@ -59,9 +59,39 @@
     cursor: pointer;
 }
 
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: none; /* hidden by default */
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Light Mode */
 body.light-mode .volume { accent-color: #47a6ff; }
 body.light-mode .progress { background: linear-gradient(90deg, #47a6ff, #3e8bd3); }
+body.light-mode .spinner {
+    border: 6px solid rgba(204, 204, 204, 0.8); /* light background */
+    border-top-color: #47a6ff; /* visible segment */
+}
 /* Dark Mode */
 body.dark-mode .volume { accent-color: #9d0bf1;}
 body.dark-mode .progress { background: linear-gradient(90deg, #9d0bf1, #6f1dd3); }
+body.dark-mode .spinner {
+    border: 6px solid rgba(17, 17, 17, 0.8); /* light background */
+    border-top-color: #9d0bf1; /* visible segment */
+}

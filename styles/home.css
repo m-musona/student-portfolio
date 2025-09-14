@@ -71,11 +71,27 @@
     position: relative;
     overflow: hidden;
     border-radius: 15px;
+    height: 400px; /* or any fixed height for your images */
+
 }
 
 /* Slides */
+/* Cover / Uncover Animation */
 .slides {
-    display: none;  /* Hide all slides by default */
+    position: absolute;
+    top: 0;
+    left: 100%; /* Start off-screen to the right */
+    width: 100%;
+    height: 100%;
+    transition: left 1s ease;
+}
+
+.slides.active {
+    left: 0; /* Slide into view */
+}
+
+.slides.prev-slide {
+    left: 0; /* Slide out to the left */
 }
 
 .slides img {
@@ -83,6 +99,7 @@
     border-radius: 15px;
     display: block;
     object-fit: cover;
+    height: 400px;
 }
 
 /* Fade Animation */
@@ -106,15 +123,10 @@
     margin-top: -22px;
     font-weight: bold;
     font-size: 24px;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
     user-select: none;
     transition: background-color 0.3s;
     color: #fff;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
 }
 
 .prev {
@@ -137,14 +149,9 @@
     height: 12px;
     width: 12px;
     margin: 0 5px;
-    background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.3s;
-}
-
-.dot:hover, .dot.active {
-    background-color: #717171;
 }
 
 /* Responsive */
@@ -227,11 +234,43 @@
     margin-top: 20px;
 }
 
+/* Light Mode */
 body.light-mode #typing {
     border-right: 2px solid #47a6ff;
 }
+body.light-mode .dot {
+    background-color: #47a6ff;
+}
+body.light-mode .profile img {
+    border: 2px solid #47a6ff;
+}
+body.light-mode .dot:hover, body.light-mode .dot.active {
+    background-color: #3e66d3;
+}
+body.light-mode .prev, body.light-mode .next {
+    background-color: #47a6ff;
+}
+body.light-mode .prev:hover, body.light-mode .next:hover {
+    background-color: #3e66d3;
+}
+/* Dark Mode */
+body.dark-mode .prev, body.dark-mode .next {
+    background-color: #9d0bf1;
+}
+body.dark-mode .prev:hover, body.dark-mode .next:hover {
+    background-color: #6618c5;
+}
 body.dark-mode #typing {
     border-right: 2px solid #9d0bf1;
+}
+body.dark-mode .dot {
+    background-color: #9d0bf1;
+}
+body.dark-mode .profile img {
+    border: 2px solid #9d0bf1;
+}
+body.dark-mode .dot:hover, body.dark-mode .dot.active {
+    background-color: #6618c5;
 }
 
 @media (max-width: 768px) {

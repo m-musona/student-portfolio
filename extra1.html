@@ -69,77 +69,90 @@
                 <div class="slideshow-container" data-slideshow="sports">
                     <h3>Sports & Fitness</h3>
 
-                    <div class="slide">
-                        <img src="images/hobbies/football.jpeg" alt="Football">
-                        <p>Football - Relaxing playing football on the weekends.</p>
-                    </div>
-                    <div class="slide">
-                        <img src="images/hobbies/Golf.jpg" alt="Golf">
-                        <p>Golfing - Playing golf once in a while.</p>
-                    </div>
-                    <div class="slide">
-                        <img src="images/hobbies/tennis.jpg" alt="tennis">
-                        <p>Tennis - Playing doubles in tennis.</p>
+                    <div class="slides-wrapper">
+                        <div class="slide">
+                            <img src="images/hobbies/football.jpeg" alt="Football">
+                            <p>Football - Relaxing playing football on the weekends.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hobbies/Golf.jpg" alt="Golf">
+                            <p>Golfing - Playing golf once in a while.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hobbies/tennis.jpg" alt="tennis">
+                            <p>Tennis - Playing doubles in tennis.</p>
+                        </div>
                     </div>
 
-                    <button class="btn" onclick="plusSlides(-1, 'sports')">Previous</button>
-                    <button class="btn" onclick="plusSlides(1, 'sports')">Next</button>
+                    <div class="btn-container">
+                        <button class="btn" onclick="plusSlides(-1, 'sports')">Previous</button>
+                        <button class="btn" onclick="plusSlides(1, 'sports')">Next</button>
+                    </div>
                 </div>
 
                 <div class="slideshow-container" data-slideshow="tech">
                     <h3>Tech & Digital</h3>
 
-                    <div class="slide">
-                        <img src="images/hobbies/game.jpg" alt="Game">
-                        <p>Coding & Game Development.</p>
-                    </div>
-                    <div class="slide">
-                        <img src="images/hobbies/cv.jpg" alt="cv">
-                        <p>Computer Vision.</p>
+                    <div class="slides-wrapper">
+                        <div class="slide">
+                            <img src="images/hobbies/game.jpg" alt="Game">
+                            <p>Coding & Game Development.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hobbies/cv.jpg" alt="cv">
+                            <p>Computer Vision.</p>
+                        </div>
                     </div>
 
-                    <button class="btn" onclick="plusSlides(-1, 'tech')">Previous</button>
-                    <button class="btn" onclick="plusSlides(1, 'tech')">Next</button>
+                    <div class="btn-container">
+                        <button class="btn" onclick="plusSlides(-1, 'tech')">Previous</button>
+                        <button class="btn" onclick="plusSlides(1, 'tech')">Next</button>
+                    </div>
                 </div>
 
                 <div class="slideshow-container" data-slideshow="adventures">
                     <h3>Affluent Adventures</h3>
 
-                    <div class="slide">
-                        <img src="images/hobbies/yachting.jpg" alt="Yachting">
-                        <p>Yachting - Exploring lake Kariba on private yachts.</p>
-                    </div>
-                    <div class="slide">
-                        <img src="images/hobbies/equestrian.jpeg" alt="Equestrian">
-                        <p>Equestrian - Riding and training show horses.</p>
-                    </div>
-                    <div class="slide">
-                        <img src="images/hobbies/fine_arts.jpg" alt="Collecting Fine Art">
-                        <p>Collecting Fine Art - Investing in valuable paintings and sculptures.</p>
+                    <div class="slides-wrapper">
+                        <div class="slide">
+                            <img src="images/hobbies/yachting.jpg" alt="Yachting">
+                            <p>Yachting - Exploring lake Kariba on private yachts.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hobbies/equestrian.jpeg" alt="Equestrian">
+                            <p>Equestrian - Riding and training show horses.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hobbies/fine_arts.jpg" alt="Collecting Fine Art">
+                            <p>Collecting Fine Art - Investing in valuable paintings and sculptures.</p>
+                        </div>
                     </div>
 
-                    <button class="btn" onclick="plusSlides(-1, 'adventures')">Previous</button>
-                    <button class="btn" onclick="plusSlides(1, 'adventures')">Next</button>
+                    <div class="btn-container">
+                        <button class="btn" onclick="plusSlides(-1, 'adventures')">Previous</button>
+                        <button class="btn" onclick="plusSlides(1, 'adventures')">Next</button>
+                    </div>
                 </div>
 
                 <div class="slideshow-container" data-slideshow="travel">
                     <h3>Travel</h3>
 
-                    <div class="slide">
-                        <img src="images/hobbies/farm_house.jpg" alt="Farm House">
-                        <p>Farm House - Relaxing in seclusion on the farm house.</p>
-                    </div>
-                    <div class="slide">
-                        <img src="images/hobbies/safari.jpg" alt="Safari">
-                        <p>Safari - Experiencing wildlife in lodges and tours.</p>
+                    <div class="slides-wrapper">
+                        <div class="slide">
+                            <img src="images/hobbies/farm_house.jpg" alt="Farm House">
+                            <p>Farm House - Relaxing in seclusion on the farm house.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hobbies/safari.jpg" alt="Safari">
+                            <p>Safari - Experiencing wildlife in lodges and tours.</p>
+                        </div>
                     </div>
 
-                    <button class="btn" onclick="plusSlides(-1, 'travel')">Previous</button>
-                    <button class="btn" onclick="plusSlides(1, 'travel')">Next</button>
+                    <div class="btn-container">
+                        <button class="btn" onclick="plusSlides(-1, 'travel')">Previous</button>
+                        <button class="btn" onclick="plusSlides(1, 'travel')">Next</button>
+                    </div>
                 </div>
-            </div>
-
-            <!-- You can repeat the same slideshow structure for other categories (Sports, Travel, Tech, etc.) -->
         </section>
 
         <footer>
@@ -148,7 +161,6 @@
 
         <script src="scripts/script.js"></script>
         <script>
-            // Slideshow functionality
             const slideIndices = {};
 
             function showSlides(n, slideshowId) {
@@ -156,18 +168,20 @@
                 const slides = container.getElementsByClassName("slide");
 
                 if (!slideIndices[slideshowId]) slideIndices[slideshowId] = 1;
+
                 if (n > slides.length) slideIndices[slideshowId] = 1;
-                if (n < 1) slideIndices[slideshowId] = slides.length;
+                else if (n < 1) slideIndices[slideshowId] = slides.length;
+                else slideIndices[slideshowId] = n;
 
                 for (let i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
+                    slides[i].classList.remove("active");
                 }
-                slides[slideIndices[slideshowId] - 1].style.display = "block";
+
+                slides[slideIndices[slideshowId] - 1].classList.add("active");
             }
 
             function plusSlides(n, slideshowId) {
-                slideIndices[slideshowId] = (slideIndices[slideshowId] || 1) + n;
-                showSlides(slideIndices[slideshowId], slideshowId);
+                showSlides((slideIndices[slideshowId] || 1) + n, slideshowId);
             }
 
             // Initialize all slideshows

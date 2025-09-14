@@ -65,6 +65,9 @@
 				<h2>Project Demo</h2>
 				<p>Here is a short video of one of my projects in action:</p>
                 <div class="custom-video" id="videoPlayer">
+                    <div class="loading-indicator" id="loadingIndicator">
+                        <div class="spinner"></div>
+                    </div>
                     <video id="myVideo">
                         <source src="videos/sample_project.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -98,6 +101,7 @@
         const volume = document.getElementById("volume");
         const controls = document.getElementById("controls");
         const videoPlayer = document.getElementById("videoPlayer");
+        const loadingIndicator = document.getElementById('loadingIndicator');
 
         let hideControlsTimeout;
 
@@ -150,13 +154,23 @@
             }
         }
 
+        video.addEventListener('waiting', () => {
+            loadingIndicator.style.display = 'block';
+        });
+        video.addEventListener('playing', () => {
+            loadingIndicator.style.display = 'none';
+        });
+
         // Show controls on mouse/touch interaction
         videoPlayer.addEventListener("mousemove", showControls);
         videoPlayer.addEventListener("click", showControls);
         videoPlayer.addEventListener("touchstart", showControls);
 
         // Show controls when paused
-        video.addEventListener("pause", () => controls.classList.remove("hide"));
+        video.addEventListener("pause", () => {
+            controls.classList.remove("hide");
+            loadingIndicator.style.display = 'none';
+        });
         video.addEventListener("play", showControls);
 
         // Initialize
