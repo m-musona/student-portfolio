@@ -1,0 +1,67 @@
+.custom-video {
+    max-width: 700px;
+    margin: 2rem auto;
+    position: relative;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.custom-video video {
+    width: 100%;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(20, 20, 20, 0.5);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.controls.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.progress-container {
+    flex: 1;
+    height: 6px;
+    background: #555;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+}
+.progress {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+}
+.progress-container:hover {
+    height: 8px;
+}
+
+.time {
+    color: #fff;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.volume {
+    width: 80px;
+    cursor: pointer;
+}
+
+/* Light Mode */
+body.light-mode .volume { accent-color: #47a6ff; }
+body.light-mode .progress { background: linear-gradient(90deg, #47a6ff, #3e8bd3); }
+/* Dark Mode */
+body.dark-mode .volume { accent-color: #9d0bf1;}
+body.dark-mode .progress { background: linear-gradient(90deg, #9d0bf1, #6f1dd3); }

@@ -141,6 +141,7 @@ form {
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 14px;
+    z-index: 2;
 }
 .error.show {
     opacity: 1;
@@ -153,7 +154,11 @@ form {
         height: 90vh;
     }
     .image-container { display: none; }
-    .form-container { width: 100%; }
+    .form-container { 
+        width: 100%; 
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 }
 
 /* Light Mode (default) */

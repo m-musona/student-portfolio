@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Home</title>
         <meta charset="utf-8">
-        <title>Home Page</title>
         <meta name="description" content="Home">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link id="appleTouch" rel="apple-touch-icon" sizes="180x180" href="favicon/light/apple-touch-icon.png">
+        <link id="favicon32" rel="icon" type="image/png" sizes="32x32" href="favicon/light/favicon-32x32.png">
+        <link id="favicon16" rel="icon" type="image/png" sizes="16x16" href="favicon/light/favicon-16x16.png">
+        <link id="manifest" rel="manifest" href="favicon/light/site.webmanifest">
         <link rel="stylesheet" href="styles/home.css"/>
         <link rel="stylesheet" href="styles/style.css"/>
+        <link rel="stylesheet" href="styles/video.css"/>
     </head>
     <body>
         <button id="theme-toggle">
@@ -15,14 +20,14 @@
         <div id="mouse-effect"></div>
         <canvas id="particle-canvas"></canvas>
 
-        <header class="show-cursor header container top">
+        <header class="header">
             <div class="navbar">
                 <div class="navbar-item">
                     <a class="txt" href="home.html">Home</a>
                 </div>
                 <div class="navbar-item">
                     <div class="dropdown">
-                        <button class="dropbtn txt">Academic Results <span class="dropIcon">▼</span></button>
+                        <button class="dropbtn txt">Academic Results <span class="dropIcon">⇽</span></button>
                         <div class="dropdown-content">
                             <a class="txt" href="year1.html">Year 1 Results</a>
                             <a class="txt" href="year2.html">Year 2 Results</a>
@@ -55,7 +60,7 @@
                 </div>
                 <div>
                     <a href="profile.html" class="link-btn btn">Visit My Profile</a>
-                     <div id="typing"></div>
+                    <div id="typing"></div>
                 </div>
             </div>
 
@@ -87,11 +92,24 @@
                 <h2>Website Introduction</h2>
                 <p>Here is a short video walkthrough explaining how to use and navigate my website:</p>
                 
-                <video controls>
-                    <source src="intro.mp4" type="video/mp4">
-                    <source src="intro.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                </video>
+                <div class="custom-video" id="videoPlayer">
+                    <video id="myVideo">
+                        <source src="videos/explaination.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <div class="controls" id="controls">
+                        <button id="playPause" class="btn">▶</button>
+                        
+                        <div class="progress-container">
+                        <div id="progress" class="progress"></div>
+                        </div>
+
+                        <span id="time" class="time">0:00 / 0:00</span>
+                        
+                        <input type="range" id="volume" class="volume" min="0" max="1" step="0.05" value="1">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -198,7 +216,78 @@
             }
 
             typeEffect();
+            const video = document.getElementById("myVideo");
+            const playPause = document.getElementById("playPause");
+            const progress = document.getElementById("progress");
+            const progressContainer = document.querySelector(".progress-container");
+            const timeDisplay = document.getElementById("time");
+            const volume = document.getElementById("volume");
+            const controls = document.getElementById("controls");
+            const videoPlayer = document.getElementById("videoPlayer");
+
+            let hideControlsTimeout;
+
+            // Play / Pause
+            playPause.addEventListener("click", () => {
+                if (video.paused) {
+                    video.play();
+                    playPause.textContent = "❚❚";
+                } else {
+                    video.pause();
+                    playPause.textContent = "▶";
+                }
+            });
+
+            // Update progress bar
+            video.addEventListener("timeupdate", () => {
+                const percent = (video.currentTime / video.duration) * 100;
+                progress.style.width = percent + "%";
+                timeDisplay.textContent = formatTime(video.currentTime) + " / " + formatTime(video.duration);
+            });
+
+            // Seek video
+            progressContainer.addEventListener("click", (e) => {
+                const rect = progressContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                video.currentTime = (clickX / width) * video.duration;
+            });
+
+            // Volume control
+            volume.addEventListener("input", () => {
+                video.volume = volume.value;
+            });
+
+            // Format seconds
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60) || 0;
+                const secs = Math.floor(seconds % 60) || 0;
+                return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+            }
+
+            // Auto-hide controls
+            function showControls() {
+                controls.classList.remove("hide");
+                clearTimeout(hideControlsTimeout);
+                if (!video.paused) {
+                    hideControlsTimeout = setTimeout(() => {
+                        controls.classList.add("hide");
+                    }, 3000);
+                }
+            }
+
+            // Show controls on mouse/touch interaction
+            videoPlayer.addEventListener("mousemove", showControls);
+            videoPlayer.addEventListener("click", showControls);
+            videoPlayer.addEventListener("touchstart", showControls);
+
+            // Show controls when paused
+            video.addEventListener("pause", () => controls.classList.remove("hide"));
+            video.addEventListener("play", showControls);
+
+            // Initialize
+            showControls();
         </script>
-        <script type="module" src="scripts/main.js"></script>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

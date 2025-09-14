@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Login</title>
         <meta charset="utf-8">
-        <title>Login Page</title>
         <meta name="description" content="Login">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link id="appleTouch" rel="apple-touch-icon" sizes="180x180" href="favicon/light/apple-touch-icon.png">
+        <link id="favicon32" rel="icon" type="image/png" sizes="32x32" href="favicon/light/favicon-32x32.png">
+        <link id="favicon16" rel="icon" type="image/png" sizes="16x16" href="favicon/light/favicon-16x16.png">
+        <link id="manifest" rel="manifest" href="favicon/light/site.webmanifest">
         <link rel="stylesheet" href="styles/login.css"/>
         <link rel="stylesheet" href="styles/style.css"/>
     </head>
@@ -29,7 +33,7 @@
                         <label>Password: </label>
                         <input type="password" id="password" placeholder="Password"/>
                         <div>
-                            <input type="checkbox"/>
+                            <input id="showPassword" type="checkbox"/>
                             <span>Show Password</span>
                         </div>
                     </div>
@@ -77,7 +81,17 @@
                 window.location.href = "home.html";
                 return false;
             }
+            const passwordField = document.getElementById("password");
+            const showPasswordCheckbox = document.getElementById("showPassword");
+
+            showPasswordCheckbox.addEventListener("change", () => {
+                if (showPasswordCheckbox.checked) {
+                    passwordField.type = "text";   // show password
+                } else {
+                    passwordField.type = "password"; // hide password
+                }
+            });
         </script>
-        <script type="module" src="scripts/main.js"></script>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

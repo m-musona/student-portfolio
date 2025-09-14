@@ -21,6 +21,7 @@ body {
     margin: 0;
     animation: bgMove 10s ease-in-out infinite alternate;
     padding: 20px;
+    width: auto;
 }
 body:hover {
     cursor: none !important;
@@ -56,9 +57,10 @@ body:hover {
     text-decoration: none;
 }
 .container {
-    transition: all 0.8s ease-out;
+    transition: all 0.4s ease-out;
     opacity: 0;
     border-radius: 5px;
+    z-index: 1;
 }
 .container.shadowed {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -92,21 +94,27 @@ section {
 .header {
     padding: 20px;
     margin: 20px;
+    background-color: transparent;
 }
 /* Make the navbar a horizontal flex container */
 .navbar {
+    position: relative;
     display: flex;          /* Enable flexbox */
     align-items: center;    /* Vertically center items */
     justify-content: flex-start; /* Align items from left to right */
     gap: 20px;              /* Optional: spacing between items */
+    z-index: 1000;
 }
 
 /* Style navbar items */
 .navbar-item {
     position: relative;     /* Needed for dropdown positioning */
+    cursor: none;
+    background-color: transparent;
 }
 .navbar-item:hover {
     transform: scale(1.05);
+    cursor: none;
 }
 
 /* Optional: remove default list-style and margin/padding */
@@ -114,6 +122,7 @@ section {
     text-decoration: none;
     padding: 10px 15px;    /* Add some spacing */
     display: inline-block;
+    cursor: none;
 }
 
 /* Dropdown styling */
@@ -132,10 +141,13 @@ section {
     z-index: 9999;
     overflow: hidden;
     padding: 0px 20px;
+    opacity: 0.9;
+    cursor: auto;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;         /* Show dropdown on hover */
+    z-index: 9999;
 }
 .dropdown-content a {
     padding-left: 0px;
@@ -143,11 +155,29 @@ section {
     width: 100%;
 }
 
+.dropdown-content a:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Add smooth rotation */
+.dropIcon {
+  display: inline-block;  /* allows transform */
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+/* Rotate the arrow when dropdown is hovered */
+.dropdown:hover .dropIcon {
+  transform: rotate(-90deg);
+}
+
 .dropbtn {
     background: none;
     border: none;
-    cursor: pointer;
+    cursor: none;
     font: inherit;
+    padding: 10px 15px;
 }
 footer {
     text-align: center;
@@ -199,6 +229,8 @@ footer p {
 }
 
 
+
+
 /* Background gradient animation */
 @keyframes bgMove {
     0% { background-position: 0% 50%; }
@@ -225,6 +257,7 @@ footer p {
     transform: translate(-50%, -50%);
     transition: transform 0.1s linear, opacity 0.3s ease;
     mix-blend-mode: screen; /* subtle blending */
+    z-index: -1;
 }
 
 /* Particle canvas */
@@ -234,7 +267,7 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* behind container */
+    z-index: -1; /* behind container */
     pointer-events: none;
 }
 
@@ -269,8 +302,8 @@ footer p {
     transform: scale(1.2);
 }
 
-body.light-mode #theme-toggle { color: #111; border: 1px solid #111; } /* sun color */
-body.dark-mode #theme-toggle { color: #ffffff; border: 1px solid #303030;}   /* moon color */
+body.light-mode #theme-toggle { color: #111; border: 1px solid #111; }
+body.dark-mode #theme-toggle { color: #ffffff; border: 1px solid #303030;}
 
 /* Light Mode (default) */
 body.light-mode .container {
@@ -294,7 +327,6 @@ body.light-mode .txt {
     color: #111;
 }
 body.light-mode .navbar-item {
-    background-color: #fff;
     border-right: 1px solid #ccc;
 }
 body.light-mode .dropdown-content {
@@ -329,6 +361,7 @@ body.dark-mode .container {
     background-color: #141414;
     border: 1px solid #303030;
 }
+
 body.dark-mode .btn {
     background: linear-gradient(90deg, #9d0bf1, #6f1dd3);
     color: #fff;
@@ -347,7 +380,6 @@ body.dark-mode .mouse-circle{
     background: rgba(255, 255, 255, 0.3);
 }
 body.dark-mode .navbar-item {
-    background-color: #141414;
     border-right: 1px solid #303030;
 }
 body.dark-mode .dropdown-content {
@@ -384,5 +416,12 @@ body.dark-mode .table-container tr:hover td {
     .table-container td {
         font-size: 0.9rem;
         padding: 10px;
+    }
+    .header {
+        padding-right: 0px;
+        margin-right: 0px;
+    }
+    .navbar {
+        font-size: 0.7rem;
     }
 }
