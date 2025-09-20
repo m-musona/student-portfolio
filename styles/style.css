@@ -228,7 +228,12 @@ footer p {
     border-bottom: none;
 }
 
-
+.back-btn {
+    position: fixed;
+    top: 90%;
+    left: 90%;
+    z-index: 10;
+}
 
 
 /* Background gradient animation */
