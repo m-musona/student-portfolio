@@ -1,32 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Scroll Timeline Demo</title>
-<style>
-    .hero__bg {
-    position:absolute;
-    inset:0;
-    background: linear-gradient(135deg, #ff0080, #7a00ff);
-    transform: scale(1.6);
-  }
-</style>
+  <meta charset="utf-8">
+  <title>Reveal Row Animation</title>
+  <style>
+    body {
+      min-height: 200vh; /* to allow scroll */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .container {
+      width: 160px;
+      height: 100px;
+      background: linear-gradient(135deg,#06b6d4,#7c3aed);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .container.show {
+      opacity: 1;
+      transform: translate(0,0);
+    }
+  </style>
 </head>
 <body>
+  <div class="row">
+    <div class="container right">Box 1</div>
+    <div class="container right">Box 2</div>
+    <div class="container right">Box 3</div>
+    <div class="container right">Box 4</div>
+  </div>
 
-<section class="hero">
-    <div class="hero-img-container">
-        <div class="hero__bg"></div>
-        <div class="hero-img-logo"></div>
-        <div class="hero-img-copy">
-            <p>Scroll Down To View</p>
-        </div>
-    </div>
-</section>
+  <script>
+    const containers = document.querySelectorAll('.container');
 
-<section class="outro">
-</section>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
+    containers.forEach((container, i) => {
+      container.style.transitionDelay = `${i * 0.2}s`; // staggered follow effect
+      observer.observe(container);
+    });
+  </script>
 </body>
 </html>
