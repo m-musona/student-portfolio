@@ -147,11 +147,17 @@ form {
     opacity: 1;
     animation: shake 0.5s;
 }
+.mobile-text {
+    display: none;
+}
 
 @media (max-width: 768px) {
     .element-container {
         flex-direction: column;
         height: 90vh;
+    }
+    .mobile-text {
+        display: block;
     }
     .image-container { display: none; }
     .form-container { 

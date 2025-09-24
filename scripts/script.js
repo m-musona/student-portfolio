@@ -187,3 +187,17 @@ const observer = new IntersectionObserver(entries => {
 });
 
 containers.forEach(container => observer.observe(container));
+
+const hamburger = document.getElementById("hamburger");
+const navbarMenu = document.getElementById("navbar-menu");
+const dropdown = document.querySelector(".dropdown");
+
+hamburger.addEventListener("click", () => {
+    navbarMenu.classList.toggle("active");
+});
+
+// Toggle dropdown on mobile
+dropdown.querySelector(".dropbtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("open");
+});

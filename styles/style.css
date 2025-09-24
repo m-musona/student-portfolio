@@ -91,73 +91,112 @@ section {
     gap: 20px;
     width: 100%;
 }
-.header {
-    padding: 20px;
-    margin: 20px;
-    background-color: transparent;
+header {
+    margin-bottom: 20px;
+    z-index: 1000;
+    border-radius: 5px;
 }
-/* Make the navbar a horizontal flex container */
+
 .navbar {
-    position: relative;
-    display: flex;          /* Enable flexbox */
-    align-items: center;    /* Vertically center items */
-    justify-content: flex-start; /* Align items from left to right */
-    gap: 20px;              /* Optional: spacing between items */
-    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
 }
 
-/* Style navbar items */
+.navbar-menu {
+    display: flex;
+    gap: 1rem;
+}
+
 .navbar-item {
-    position: relative;     /* Needed for dropdown positioning */
-    cursor: none;
-    background-color: transparent;
-}
-.navbar-item:hover {
-    transform: scale(1.05);
-    cursor: none;
-}
-
-/* Optional: remove default list-style and margin/padding */
-.navbar a {
-    text-decoration: none;
-    padding: 10px 15px;    /* Add some spacing */
-    display: inline-block;
-    cursor: none;
-}
-
-/* Dropdown styling */
-.dropdown {
     position: relative;
-    z-index: 1000;
-    display: inline-block;
 }
 
+.navbar-item a {
+    text-align: center;
+}
+
+.navbar a, 
+.dropbtn {
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    display: inline-block;
+    cursor: pointer;
+}
+/* Dropdown */
 .dropdown-content {
-    display: none;          /* Hide dropdown by default */
+    display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 9999;
+    background: #333;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    border-radius: 6px;
     overflow: hidden;
-    padding: 0px 20px;
-    opacity: 0.9;
-    cursor: auto;
+    z-index: 10;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.6rem;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;         /* Show dropdown on hover */
-    z-index: 9999;
-}
-.dropdown-content a {
-    padding-left: 0px;
-    padding-right: 0px;
-    width: 100%;
+    display: block;
 }
 
-.dropdown-content a:hover {
-    transform: scale(1.05);
+/* Hamburger (hidden on large) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
     cursor: pointer;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .navbar-start {
+        display: flex;
+        align-items: center;
+    }
+    .navbar-item {
+        margin-right: 10px;
+    }
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-menu.active {
+    display: flex;
+    }
+
+    .hamburger {
+    display: flex;
+    }
+
+    .dropdown-content {
+    position: static;
+    border-radius: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+    display: none;
+    }
+
+    .dropdown.open .dropdown-content {
+    display: block;
+    }
 }
 
 /* Add smooth rotation */
@@ -175,7 +214,6 @@ section {
 .dropbtn {
     background: none;
     border: none;
-    cursor: none;
     font: inherit;
     padding: 10px 15px;
 }
@@ -362,8 +400,23 @@ body.light-mode .link {
 body.light-mode .txt {
     color: #111;
 }
+body.light-mode header {
+    background: #eee;
+    color: #111;
+}
 body.light-mode .navbar-item {
     border-right: 1px solid #ccc;
+}
+
+body.light-mode .navbar-item:hover {
+    background: #ccc;
+    border-radius: 6px;
+}
+body.light-mode .dropdown-content a:hover {
+    background: #ccc;
+}
+body.light-mode .hamburger span {
+    background: #111;
 }
 body.light-mode .dropdown-content {
     background-color: #fff;
@@ -391,13 +444,18 @@ body.light-mode .table-container table {
 body.light-mode .table-container tr:hover td {
     background-color: #f1faff;
 }
+body.light-mode .navbar-menu {
+    background: #eee;
+}
 
 /* Dark Mode */
 body.dark-mode .container {
     background-color: #141414;
     border: 1px solid #303030;
 }
-
+body.dark-mode .navbar-menu {
+    background: #222;
+}
 body.dark-mode .btn {
     background: linear-gradient(90deg, #9d0bf1, #6f1dd3);
     color: #fff;
@@ -427,8 +485,22 @@ body.dark-mode::-webkit-scrollbar-thumb:hover {
 body.dark-mode .mouse-circle{
     background: rgba(255, 255, 255, 0.3);
 }
+body.dark-mode header {
+    background: #222;
+    color: #fff;
+}
 body.dark-mode .navbar-item {
     border-right: 1px solid #303030;
+}
+body.dark-mode .dropdown-content a:hover {
+    background: #555;
+}
+body.dark-mode .navbar-item:hover {
+    background: #444;
+    border-radius: 6px;
+}
+body.dark-mode .hamburger span {
+    background: #fff;
 }
 body.dark-mode .dropdown-content {
     background-color: #141414;
