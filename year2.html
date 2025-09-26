@@ -10,8 +10,10 @@
         <link id="favicon16" rel="icon" type="image/png" sizes="16x16" href="favicon/light/favicon-16x16.png">
         <link id="manifest" rel="manifest" href="favicon/light/site.webmanifest">
         <link rel="stylesheet" href="styles/style.css"/>
+		<link rel="stylesheet" href="styles/year.css"/>
 
 		<script src="scripts/script.js" defer></script>
+		<script src="scripts/year.js" defer></script>
     </head>
 	<body>
 		<button id="theme-toggle">
@@ -52,40 +54,147 @@
             </div>
         </header>
 		<section>
-			<div class="table-container show-cursor container bottom">
+			<div class="headed-container">
 				<h2>Year 2 Results</h2>
-				<table>
+				<div class="results-summary">
+					<p>In my second year, I continued to excel in both theoretical and practical courses. I strengthened my programming skills, delved deeper into data structures and algorithms, and gained hands-on experience in software development projects. My consistent performance reflects strong analytical thinking and a commitment to mastering core computer science concepts.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="semester-section">
+			<div class="headed-container">
+				<h2>Semester 1 Overview</h2>
+				<div id="sem-1-overview" class="overviews">
+					<div class="overview gpa-container">
+						<div class="circle show-cursor"><span>0.00</span></div>
+						<div class="circle-label show-cursor">Overall GPA</div>
+					</div>
+
+					<div class="overview chart-container">
+						<h3 style="text-align:center;">My Average vs Class Average</h3>
+						<div class="bar">
+							<div class="bar-fill show-cursor my-average"><span class="bar-label">Me</span><span class="bar-value my-value">0%</span></div>
+						</div>
+						<div class="bar">
+							<div class="bar-fill show-cursor class-average" data-average="59"><span class="bar-label">Class</span><span class="bar-value class-value">0%</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table-container show-cursor container right">
+				<h2>Semester 1 Results</h2>
+				<table id="sem-1-table">
 					<tr>
-						<th>Subject</th>
+						<th>Course</th>
 						<th>Marks</th>
 						<th>Grade</th>
 					</tr>
 					<tr>
-						<td>Data Structures</td>
-						<td>100</td>
+						<td>Network and Telecom Systems</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
 						<td>A+</td>
 					</tr>
 					<tr>
-						<td>Discrete Mathematics</td>
-						<td>100</td>
+						<td>Database Design and Management</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
 						<td>A+</td>
 					</tr>
 					<tr>
-						<td>Object-Oriented Programming</td>
-						<td>100</td>
+						<td>Java Programming for beginners</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
 						<td>A+</td>
 					</tr>
 					<tr>
-						<td>Digital Electronics</td>
-						<td>100</td>
-						<td>A+</td>
-					</tr>
-					<tr>
-						<td>Probability & Statistics</td>
-						<td>100</td>
+						<td>Financial Accounting</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
 						<td>A+</td>
 					</tr>
 				</table>
+			</div>
+		</section>
+		<section class="semester-section">
+			<div class="table-container show-cursor container left">
+				<h2>Semester 2 Results</h2>
+				<table id="sem-2-table">
+					<tr>
+						<th>Course</th>
+						<th>Marks</th>
+						<th>Grade</th>
+					</tr>
+					<tr>
+						<td>Multimedia Systems and Applications</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Advanced Programming Java</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Quantitative Methods</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Network Design and Management (Enterprise Network)</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
+						<td>A+</td>
+					</tr>
+					<tr>
+						<td>Data structures and Algorithms</td>
+						<td>
+							100
+							<div class="progress-bar"><div class="progress-fill" data-width="100%"></div></div>
+						</td>
+						<td>A+</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="headed-container">
+				<h2>Semester 2 Overview</h2>
+				<div id="sem-2-overview" class="overviews">
+					<div class="overview gpa-container">
+						<div class="circle show-cursor"><span>0.00</span></div>
+						<div class="circle-label show-cursor">Overall GPA</div>
+					</div>
+
+					<div class="overview chart-container">
+						<h3 style="text-align:center;">My Average vs Class Average</h3>
+						<div class="bar">
+							<div class="bar-fill show-cursor my-average"><span class="bar-label">Me</span><span class="bar-value my-value">0%</span></div>
+						</div>
+						<div class="bar">
+							<div class="bar-fill show-cursor class-average" data-average="55"><span class="bar-label">Class</span><span class="bar-value class-value">0%</span></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<footer>

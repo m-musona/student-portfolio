@@ -10,8 +10,10 @@
         <link id="favicon16" rel="icon" type="image/png" sizes="16x16" href="favicon/light/favicon-16x16.png">
         <link id="manifest" rel="manifest" href="favicon/light/site.webmanifest">
         <link rel="stylesheet" href="styles/style.css"/>
+        <link rel="stylesheet" href="styles/year.css"/>
 
 		<script src="scripts/script.js" defer></script>
+		<script src="scripts/year.js" defer></script>
     </head>
 	<body>
 		<button id="theme-toggle">
@@ -52,40 +54,115 @@
             </div>
         </header>
 		<section>
-			<div class="table-container show-cursor container bottom">
+			<div class="headed-container">
 				<h2>Year 4 Results</h2>
-				<table>
+				<div class="results-summary">
+					<p>Year 4 is planned to focus on specialized subjects, capstone projects, and real-world applications. I aim to deepen my expertise and prepare for professional challenges in the tech industry.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="semester-section">
+			<div class="headed-container">
+				<h2>Semester 1 Overview</h2>
+				<div id="sem-1-overview" class="overviews">
+					<div class="overview gpa-container na-circle">
+						<div class="circle show-cursor"><span>N/A</span></div>
+						<div class="circle-label show-cursor">Overall GPA</div>
+					</div>
+
+					<div class="overview chart-container">
+						<h3 style="text-align:center;">My Average vs Class Average</h3>
+						<div class="bar">
+							<div class="bar-fill show-cursor na-bar"><span class="bar-label">Me</span><span class="bar-value">N/A</span></div>
+						</div>
+						<div class="bar">
+							<div class="bar-fill show-cursor na-bar"><span class="bar-label">Class</span><span class="bar-value">N/A</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table-container show-cursor container right">
+				<h2>Semester 1 Results</h2>
+				<table id="sem-1-table">
 					<tr>
-						<th>Subject</th>
+						<th>Course</th>
 						<th>Marks</th>
 						<th>Grade</th>
 					</tr>
 					<tr>
-						<td>Machine Learning</td>
-						<td>100</td>
-						<td>A+</td>
+						<td>Business and Information Tech. Law</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
 					</tr>
 					<tr>
-						<td>Cloud Computing</td>
-						<td>100</td>
-						<td>A+</td>
+						<td>Information Systems and Society</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
 					</tr>
 					<tr>
-						<td>Cybersecurity</td>
-						<td>100</td>
-						<td>A+</td>
+						<td>Strategic Information System and Business Policies</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
 					</tr>
 					<tr>
-						<td>Final Year Project</td>
-						<td>100</td>
-						<td>A+</td>
-					</tr>
-					<tr>
-						<td>Entrepreneurship</td>
-						<td>100</td>
-						<td>A+</td>
+						<td>ICT Project/Research (One year Project)</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
 					</tr>
 				</table>
+			</div>
+		</section>
+		<section class="semester-section">
+			<div class="table-container show-cursor container left">
+				<h2>Semester 2 Results</h2>
+				<table id="sem-2-table">
+					<tr>
+						<th>Course</th>
+						<th>Marks</th>
+						<th>Grade</th>
+					</tr>
+					<tr>
+						<td>Information Technology Security</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
+					</tr>
+					<tr>
+						<td>Current Trends in ICT</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
+					</tr>
+					<tr>
+						<td>System Administration (Linux/Windows Server)</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
+					</tr>
+					<tr>
+						<td>ICT Project / Research (One Year Project)</td>
+						<td class="not-available">N/A</td>
+        				<td class="not-available">N/A</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="headed-container">
+				<h2>Semester 2 Overview</h2>
+				<div id="sem-2-overview" class="overviews">
+					<div class="overview gpa-container na-circle">
+						<div class="circle show-cursor"><span>N/A</span></div>
+						<div class="circle-label show-cursor">Overall GPA</div>
+					</div>
+
+					<div class="overview chart-container">
+						<h3 style="text-align:center;">My Average vs Class Average</h3>
+						<div class="bar">
+							<div class="bar-fill show-cursor na-bar"><span class="bar-label">Me</span><span class="bar-value">N/A</span></div>
+						</div>
+						<div class="bar">
+							<div class="bar-fill show-cursor na-bar"><span class="bar-label">Class</span><span class="bar-value">N/A</span></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<footer>

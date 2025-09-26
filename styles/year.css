@@ -1,0 +1,240 @@
+/* Apply theme variables to the body instead of :root */
+body.light-mode {
+  --circle-color: #47a6ff;
+  --circle-bg: #ccc;
+}
+
+body.dark-mode {
+  --circle-color: #9d0bf1;
+  --circle-bg: #222;
+}
+.headed-container {
+    padding: 30px 0px;
+}
+.headed-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+/* Accent underline for heading */
+.headed-container h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin-top: 8px;
+    border-radius: 2px;
+}
+.overviews {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.overview {
+    flex: 1 1 300px; /* flex-grow, flex-shrink, base width */
+    min-width: 250px; /* ensure it doesn't shrink too much */
+}
+.results-summary {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.progress-bar {
+    border-radius: 8px;
+    overflow: hidden;
+    height: 12px;
+    margin-top: 6px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0; /* Start collapsed */
+    transition: width 1s ease-in-out;
+}
+
+/* GPA Circle */
+.gpa-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-direction: column;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 22px;
+    font-weight: bold;
+    background: conic-gradient(var(--circle-color) 0deg, var(--circle-bg) 0deg 360deg);
+}
+
+.circle span {
+    position: absolute;
+}
+
+.circle-label {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Comparison Chart */
+.chart-container {
+    margin: 10px auto;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.bar {
+    border-radius: 10px;
+    margin: 15px 0;
+    position: relative;
+    height: 30px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0; /* Start collapsed */
+    border-radius: 10px;
+    transition: width 1.5s ease-in-out;
+}
+
+.bar-label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+.bar-value {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+.back-btn {
+    position: fixed;
+    top: 90%;
+    left: 0;
+    margin-left: 10px;
+    z-index: 10;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .semester-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+/* Circle N/A */
+.na-circle .circle {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Progress bars N/A */
+.na-bar {
+    width: 100%;
+    position: relative;
+}
+
+
+/* Light Mode (default) */
+body.light-mode .progress-bar {
+    background: #ccc;
+}
+body.light-mode .progress-fill {
+    background: linear-gradient(90deg, #47a6ff, #3e8bd3);
+}
+body.light-mode .bar {
+    background: #ccc;
+}
+body.light-mode .my-average {
+    background: linear-gradient(90deg, #47a6ff, #3e8bd3);
+}
+body.light-mode .class-average {
+    background: linear-gradient(90deg, #47a6ff, #3e8bd3);
+}
+body.light-mode .bar-label {
+    color: #111;
+}
+body.light-mode .bar-value {
+    color: #111;
+}
+body.light-mode .circle-label {
+    color: #555;
+}
+body.light-mode .headed-container h2::after {
+    background-color: #47a6ff;
+}
+body.light-mode .na-bar .bar-label, 
+body.light-mode .na-bar .bar-value {
+    color: #999;
+}
+body.light-mode .na-bar {
+    background-color: #eee !important;
+    color: #999;
+    border: solid 1px #47a6ff;
+}
+body.light-mode .na-circle .circle {
+    background: #eee;
+    color: #999;
+    border: solid 1px #47a6ff;
+}
+
+/* Dark Mode (default) */
+body.dark-mode .progress-bar {
+    background: #222;
+}
+body.dark-mode .progress-fill {
+    background: linear-gradient(90deg, #9d0bf1, #6f1dd3);
+}
+body.dark-mode .bar {
+    background: #222;
+}
+body.dark-mode .my-average {
+    background: linear-gradient(90deg, #9d0bf1, #6f1dd3);
+}
+body.dark-mode .class-average {
+    background: linear-gradient(90deg, #9d0bf1, #6f1dd3);
+}
+body.dark-mode .bar-label {
+    color: #fff;
+}
+body.dark-mode .bar-value {
+    color: #fff;
+}
+body.dark-mode .circle-label {
+    color: #ccc;
+}
+body.dark-mode .headed-container h2::after {
+    background-color: #9d0bf1;
+    color: #111;
+}
+body.dark-mode .na-bar .bar-label, 
+body.dark-mode .na-bar .bar-value {
+    color: #ccc;
+}
+body.dark-mode .na-bar {
+    background-color: #141414 !important;
+    color: #ccc;
+    border: solid 1px #9d0bf1;
+}
+body.dark-mode .na-circle .circle {
+    background: #141414;
+    color: #ccc;
+    border: solid 1px #9d0bf1;
+}

@@ -66,7 +66,7 @@ showSlides(slideIndex);
 // Typing Animation
 const texts = [
 "Hello! My name is Mutale Musona. ", 
-"An information systems and technology student at the University Of Lusaka. ",
+"An Information Systems and Technology student at the University Of Lusaka. ",
 "I am passionate about web development, AI, and computer graphics programming. ",
 "This portal showcases my results, extra projects, and more. "
 ];

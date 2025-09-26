@@ -265,14 +265,11 @@ footer p {
 .table-container tr:last-child td {
     border-bottom: none;
 }
-
-.back-btn {
-    position: fixed;
-    top: 90%;
-    left: 90%;
-    z-index: 10;
+/* Table N/A cells */
+.not-available {
+    font-style: italic;
+    text-align: center;
 }
-
 
 /* Background gradient animation */
 @keyframes bgMove {
@@ -444,6 +441,10 @@ body.light-mode .table-container table {
 body.light-mode .table-container tr:hover td {
     background-color: #f1faff;
 }
+body.light-mode .not-available {
+    color: #999;
+    background-color: #eee;
+}
 body.light-mode .navbar-menu {
     background: #eee;
 }
@@ -527,6 +528,10 @@ body.dark-mode .table-container table {
 }
 body.dark-mode .table-container tr:hover td {
     background-color: #303030;
+}
+body.dark-mode .not-available {
+    color: #ccc;
+    background-color: #12121212;
 }
 
 @media (max-width: 768px) {

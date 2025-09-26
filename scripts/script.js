@@ -116,9 +116,9 @@ setInterval(() => {
 // --- Theme ---
 const toggleBtn = document.getElementById("theme-toggle");
 
-// Set default mode based on localStorage or default to light
+// Set default mode based on localStorage or default to dark-mode
 if (!localStorage.getItem("theme")) {
-    localStorage.setItem("theme", "light-mode");
+    localStorage.setItem("theme", "dark-mode");
 }
 document.body.classList.add(localStorage.getItem("theme"));
 
